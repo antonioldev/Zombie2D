@@ -1,49 +1,77 @@
 #pragma once
-
 #include <SFML/Graphics.hpp>
+using namespace sf;
+class Player
+{
+private:
+    const float START_SPEED = 200;
+    const float START_HEALTH = 100;
+    // Where is the player
+    Vector2f m_Position;
+    // The sprite
+    Sprite m_Sprite;
+    // And a texture
+    // !!Watch this space – Changes here soon!!
+    Texture m_Texture;
+    // What is the screen resolution
+    Vector2f m_Resolution;
+    // What size is the current arena
+    IntRect m_Arena;
+    // How big is each tile of the arena
+    int m_TileSize;
+    // Which direction(s)the player is moving in
+    bool m_UpPressed;
+    bool m_DownPressed;
+    bool m_LeftPressed;
+    bool m_RightPressed;
+    // How much health has the player got?
+    int m_Health;
+    // What is the max’ health the player can have
+    int m_MaxHealth;
+    // When was the player last hit
+    Time m_LastHit;
+    // Speed in pixels per second
+    float m_Speed;
+    // All our public functions next
+
+public:
+    Player();
+    void spawn(IntRect arena, Vector2f resolution, int tileSize);
+    // Call this at the end of every game
+    void resetPlayerStats();
+
+    // Handle the player getting hit by a zombie
+    bool hit(Time timeHit);
+    // How long ago was the player last hit
+    Time getLastHitTime();
+    // Where is the player
+    FloatRect getPosition();
+    // Where is the center of the player
+    Vector2f getCenter();
+    // What angle is the player facing
+    float getRotation();
+    // Send a copy of the sprite to the main function
+    Sprite getSprite();
+    // The next four functions move the player
+    void moveLeft();
+    void moveRight();
+    void moveUp();
+    void moveDown();
+    // Stop the player moving in a specific direction
+    void stopLeft();
+    void stopRight();
+    void stopUp();
+    void stopDown();
+    // We will call this function once every frame
+    void update(float elapsedTime, Vector2i mousePosition);
+    // Give the player a speed boost
+    void upgradeSpeed();
+    // Give the player some health
+    void upgradeHealth();
+    // Increase the max’ health the player can have
+    void increaseHealthLevel(int amount);
+    // How much health has the player currently got?
+    int getHealth();
 
 
-class Player {
-	private:
-		const float START_SPEED = 200;
-		const float START_HEALTH = 100;
-		sf::Vector2f _position; //position of the payer
-		sf::Sprite _sprite;
-
-		sf::Texture _texture;
-		sf::Vector2f _resolution; //screen resolution
-		sf::IntRect _arena; //size of current arena
-		int _tileSize; //size of each tile of the arena
-		bool _upPressed;
-		bool _downPressed;
-		bool _leftPressed;
-		bool _rightPressed;
-		int _health; // health of the player
-		int _maxHealth; // maximum health of the player
-		sf::Time _lastHit; //when was player last hit
-		float _speed; // spped in pixel per seconds
-
-	public:
-		Player();
-		void spawn(sf::IntRect arena, sf::Vector2f resolution, int tileSize);
-		void resetPlayerStat();
-		bool hit(sf::Time timeHit);
-		sf::Time getLastHitTime();
-		sf::FloatRect getPosition();
-		sf::Vector2f getCenter();
-		float getRotation();
-		sf::Sprite getSprite();
-		void moveUp();
-		void moveDown();
-		void moveLeft();
-		void moveRight();
-		void stopUp();
-		void stopDown();
-		void stopLeft();
-		void stopRight();
-		void update(float elapsedTime, sf::Vector2i mousePosition);
-		void upgradeSpeed();
-		void upgradeHealth();
-		void increaseHealthLevel(int amount);
-		int getHealth();
 };

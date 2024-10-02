@@ -30,9 +30,13 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CreateBackground.cpp" />
     <ClCompile Include="CreateHorde.cpp" />
+    <ClCompile Include="DrawScene.cpp" />
+    <ClCompile Include="HandleInput.cpp" />
     <ClCompile Include="Pickup.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="preload.cpp" />
     <ClCompile Include="TextureHolder.cpp" />
+    <ClCompile Include="UpdateFrame.cpp" />
     <ClCompile Include="Zombie.cpp" />
     <ClCompile Include="ZombieArena.cpp" />
   </ItemGroup>

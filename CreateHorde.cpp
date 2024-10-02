@@ -1,5 +1,6 @@
 #include "ZombieArena.hpp"
 #include "Zombie.hpp"
+
 Zombie* createHorde(int numZombies, IntRect arena)
 {
 	Zombie* zombies = new Zombie[numZombies];

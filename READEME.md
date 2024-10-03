@@ -20,5 +20,5 @@ SFML is particularly useful for game development due to its simplicity and ease 
 - **Input**: Handling keyboard, mouse, and joystick input. SFML simplifies the process of capturing and responding to user inputs.
 
 ## Game Scenes
-![Zombie Screenshot]()
-![Zombie Screenshot]()
+![Zombie Screenshot](https://github.com/antonioldev/Zombie2D/blob/master/Screenshot1.png)
+![Zombie Screenshot](https://github.com/antonioldev/Zombie2D/blob/master/Screenshot2.png)

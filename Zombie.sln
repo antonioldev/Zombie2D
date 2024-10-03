@@ -5,6 +5,13 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Zombie", "Zombie.vcxproj", "{A5672381-912B-4C1E-83A5-62BE02226B88}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{81B1A91E-CFC6-4425-9ECE-45642701324B}"
+	ProjectSection(SolutionItems) = preProject
+		READEME.md = READEME.md
+		Screenshot1.png = Screenshot1.png
+		Screenshot2.png = Screenshot2.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

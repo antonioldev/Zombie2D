@@ -114,3 +114,12 @@ void loadHUDTexure(t_texture& texture, t_sprite& sprite)
 	sprite.healthBar.setFillColor(Color::Red);
 	sprite.healthBar.setPosition(450, 980);
 }
+
+void loadGameObj(t_gameObj& gameObj)
+{
+	gameObj.player = new Player();
+	gameObj.zombies = nullptr; // Prepare for a horde of zombies
+	gameObj.bullets = new Bullet[100]; //Prepare a set of bulltes
+	gameObj.healthPickup = new Pickup(1); // Dynamic allocation
+	gameObj.ammoPickup = new Pickup(2);
+}

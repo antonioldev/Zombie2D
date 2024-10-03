@@ -89,6 +89,15 @@ typedef struct s_time
     Time lastPressed;
 }t_time;
 
+typedef struct s_gameObj
+{
+    Player* player = nullptr;
+    Zombie* zombies = nullptr;
+    Bullet* bullets = nullptr;
+    Pickup* healthPickup = nullptr;
+    Pickup* ammoPickup = nullptr;
+} t_gameObj;
+
 int createBackground(VertexArray& rVA, IntRect arena);
 void load_audio_files(t_sound& sounds);
 void load_text_files(t_texts& texts, int hiScore);
@@ -97,12 +106,17 @@ int	get_hiscore();
 Zombie* createHorde(int numZombies, IntRect arena);
 void handleEvents(Event& event, State& state, Clock& clock, Player* player, t_sound& sounds, t_stat& stat);
 void handleMove(Player* player, t_stat& stat, t_sound& sounds, Bullet bullets[], t_time& time, Vector2f mouseWorldPosition);
-bool handleLevelUp(Event event, t_stat& stat, Player* player, State& state, Pickup* healthPickup, Pickup* ammoPickup);
+State handleLevelUp(Event event, t_stat& stat, Player* player, State& state, Pickup* healthPickup, Pickup* ammoPickup);
 void setNewLevel(State state, t_stat& stat, IntRect& arena, Player* player, VertexArray& background,
-    Vector2f resolution, Pickup& healthPickup, Pickup& ammoPickup, Sound powerup);
+    Vector2f resolution, Pickup* healthPickup, Pickup* ammoPickup, Sound powerup);
 void hasZombieBeenShot(t_stat& stat, Zombie* zombies, Bullet bullets[], State& state, Sound splat);
 void hasPlayerBeenAttacked(t_stat& stat, Zombie* zombies, Player* player, State& state, Sound& hit, Time gameTimeTotal);
 void hasPlayerGotPickup(Player* player, Pickup* healthPickup, Pickup* ammoPickup, t_sound sounds, t_stat& stat);
 void updateHUD(t_stat stat, t_texts& texts);
 void drawGameover(RenderWindow& window, Sprite& gameOver, t_texts& texts);
 void drawLevelUp(RenderWindow& window, Sprite& gameOver, Text& levelUp);
+void loadGameObj(t_gameObj& gameObj);
+void drawMainView(RenderWindow& window, t_sprite& sprite, t_stat& stat, VertexArray background,
+    Texture& bg, t_gameObj& gameObj);
+void drawHudView(RenderWindow& window, t_sprite& sprite, t_texts& texts);
+void freeMemory(t_gameObj& gameObj);

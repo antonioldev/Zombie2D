@@ -1,8 +1,5 @@
 #include "ZombieArena.hpp"
-//#include "Player.hpp"
-//#include "TextureHolder.hpp"
-//#include "Bullet.hpp"
-//#include "Pickup.hpp"
+
 
 // Collision detection zombie/bullet
 void hasZombieBeenShot(t_stat& stat, Zombie* zombies, Bullet bullets[], State& state, Sound splat)

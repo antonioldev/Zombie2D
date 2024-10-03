@@ -7,12 +7,9 @@ Player::Player()
 	m_Sprite()
 {
 	// Associate a texture with the sprite
-	// !!Watch this space!!
 	m_Sprite = Sprite(TextureHolder::GetTexture(
 		"graphics/player.png"));
-
-	// Set the origin of the sprite to the center,
-	// for smooth rotation
+	// Set the origin of the sprite to the center, for smooth rotation
 	m_Sprite.setOrigin(25, 25);
 }
 
@@ -23,8 +20,7 @@ void Player::spawn(IntRect arena,
 	// Place the player in the middle of the arena
 	m_Position.x = arena.width / 2;
 	m_Position.y = arena.height / 2;
-	// Copy the details of the arena
-	// to the player's m_Arena
+	// Copy the details of the arena to the player's m_Arena
 	m_Arena.left = arena.left;
 	m_Arena.width = arena.width;
 	m_Arena.top = arena.top;
